@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # 配置aritle的url
     path('article/', include('article.urls', namespace='article')),
+    # 配置userprofile的url
+    path('userprofile/', include('userprofile.urls', namespace='userprofile')),
 ]
