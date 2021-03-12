@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'password_reset',
     'article',
     'userprofile',
 ]
@@ -115,12 +116,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+EMAIL_HOST = 'smtp.qq.com'
+
+EMAIL_HOST_USER = 'xxx@qq.com'
+
+EMAIL_HOST_PASSWORD = 'xxxxxx'
+
+EMAIL_PORT = 25
+
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = 'clay\'s blog <xxx@qq.com>'

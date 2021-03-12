@@ -24,4 +24,6 @@ urlpatterns = [
     path('article/', include('article.urls', namespace='article')),
     # 配置userprofile的url
     path('userprofile/', include('userprofile.urls', namespace='userprofile')),
+    # 配置password_reset的url
+    path('password-reset/', include('password_reset.urls')),
 ]
