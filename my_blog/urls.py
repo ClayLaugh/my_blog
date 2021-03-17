@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 # 导入include
 from django.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +29,5 @@ urlpatterns = [
     # 配置password_reset的url
     path('password-reset/', include('password_reset.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
