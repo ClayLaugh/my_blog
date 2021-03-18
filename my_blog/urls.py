@@ -28,6 +28,8 @@ urlpatterns = [
     path('userprofile/', include('userprofile.urls', namespace='userprofile')),
     # 配置password_reset的url
     path('password-reset/', include('password_reset.urls')),
+    # 配置comment的url
+    path('comment/', include('comment.urls', namespace='comment')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

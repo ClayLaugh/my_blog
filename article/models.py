@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
 # 博客文章数据模型
 class ArticlePost(models.Model):
     # 文章作者。参数 on_delete 用于指定数据删除的方式
@@ -15,6 +16,8 @@ class ArticlePost(models.Model):
     created = models.DateTimeField(default=timezone.now)
     # 文章更新时间。参数 auto_now=True 指定每次更新时自动写入当前时间
     updated = models.DateTimeField(auto_now=True)
+    # 文章浏览量。PositiveIntegerField是用与存储正整数的字段
+    total_views = models.PositiveIntegerField(default=0)
 
     # 内部类用于给 model 定义元数据
     class Meta:
