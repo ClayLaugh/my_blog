@@ -5,6 +5,7 @@ from .forms import ArticlePostForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import ArticlePost
+from comment.models import Comment
 import markdown
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -47,6 +48,7 @@ def article_list(request):
 def article_detail(request, id):
     # 根据 id 取出相应的文章
     article = ArticlePost.objects.get(id=id)
+    comments = Comment.objects.filter(article=id)
     article.total_views += 1
     article.save(update_fields=['total_views'])
     md = markdown.Markdown(
@@ -57,7 +59,7 @@ def article_detail(request, id):
         ]
     )
     article.body = md.convert(article.body)
-    context = {'article': article, 'toc': md.toc}
+    context = {'article': article, 'toc': md.toc, 'comments': comments}
     return render(request, 'article/detail.html', context)
 
 
